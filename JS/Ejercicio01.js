@@ -47,3 +47,5 @@ console.log(`Creo que es ${miColorFavorito}, ¿le atiné?`); // La manera de mez
 
 console.log("miFechaNacimiento es de tipo: ", typeof(miFechaNacimiento));
 console.log("miColorFavorito es de tipo: ", typeof(miColorFavorito));
+
+//Cambios aceptados para la Fusion del ramal
