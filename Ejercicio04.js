@@ -119,3 +119,88 @@ console.table(estudiantes);
 console.log("%c9.- Modificar un arreglo en un arreglo nuevo con posiciones definidas (SPLICE)", style_console)
 console.log("El arreglo original tiene los elementos:")
 console.table(estudiantes);
+console.log(`La longitud de la fila ${[i]} es = ${matrizIrregular[i].length}`)
+
+
+console.log("$c5.- Agregar un nuevo elemento a un arreglo (PUSH)",style_console);
+
+let estudiantes3 = ["Matías Granillo", "Al Farías", "Jesús Artiaga", "Teresa Vargas","Sayurid Bautista","Derek Sesni"]
+console.log("%c5.- Agregar un nuevo elemento a un arreglo (PUSH)", style_console);
+let estudiantes2 = ["Matías Granillo", "Al Farías", "José Francisco", "Teresa Vargas","Sayurid Bautista","Derek Sesni"]
+console.log("Los elementos actuales del arreglo son: ")
+console.table(estudiantes)
+console.log(`Agregamos a un nuevo estudiante llamado: Obed Gúzman`)
+
+
+console.log("%c9.- Modificar un arreglo en un arreglo nuevo con posiciones definidas (SPLICE)", style_console)
+console.log("El arreglo original tiene los elementos:")
+console.table(estudiantes);
+console.table(estudiantes);
+console.log("Dividir el arreglo en uno nuevo eliminando ciertos elementos en base a su posicion")
+estudiantes.splice(2)
+console.table(estudiantes)
+console.log("Se agregaron 5 nuevos estudiates , por lo que el arreglo es : ")
+console.log("Dividir el arreglo y agregar mas nombres a la lista de estuidantes")
+estudiantes.push("Francisco Garcia")
+estudiantes.push("Chester Bennington")
+estudiantes.push("Edwin Cruz")
+estudiantes.push("Diego Miguel")
+estudiantes.push("Luis Humberto")
+console.table(estudiantes)
+console.log("Vamos a meter a  \"Rafa Navejas\" en los elementos de la posicion 0 y 1")
+estudiantes.splice(1,0,"Rafa Navejas")
+console.log("El resultado es : ")
+console.table(estudiantes)
+//También splice sirve para reemplazar elementos por otros, en este caso remplazaremos a "Francisco Garcia" por "Ricardo Luna"
+console.log("Ahora vamos a remplazar a \"Al Farias\" en los elementos de la posición por \"Jorge Siddhartha\"")
+estudiantes.splice(0,1, "Siddhartha")
+console.log("Resultando en:")
+console.table(estudiantes)
+console.log("%c10.- Metodos para la manipulación de Arreglos INMUTABLES", style_console);
+let signosZodiacales= ["Aries", "Tauro", "Geminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario", "Capricornio", "Acuario", "Piscis"]
+//congelamos el arreglo volviendolo INMUTABLE
+Object.freeze(signosZodiacales);
+//Desestructuración de Arreglos
+let [signo1,,signo3,,,,signo7,,,,] = signosZodiacales
+console.log(`EL PRIMER SIGNO ZODIACAL ES: ${signo1}`)
+console.log(`EL TERCER SIGNO ZODIACAL ES: ${signo3}`)
+console.log(`EL SEPTIMO SIGNO ZODIACAL ES: ${signo7}`)
+//console.log(`EL CUARTO SIGNO ZODIACAL ES: ${signo4}`)
+//Ninguna se ejecuta por que esta congelada 
+/*signosZodiacales.push("Ofiuco")
+signosZodiacales.unshift();
+signosZodiacales.splice(6,2);*/
+console.log("%c11.- Filtrado de Elemento dentro de un arreglo utilizando el método FILTER", style_console);
+console.table(estudiantes);
+//antes de filtrqar datos llenemos el arreglo con 10 elementos
+estudiantes.push("Sonic");
+estudiantes.push("Shadow")
+estudiantes.push("Silver")
+estudiantes.push("Tales")
+estudiantes.push("Amy")
+estudiantes.push("Cream")
+console.table(estudiantes)
+Object.freeze(estudiantes)
+//Filter es un método que recorre los elementos de un arreglo haciendo alguna tarea en específico, lo que tenemos que considerar es que este nuevo arreglo resultante es un objeto nuevo que pueda ser mutable.
+console.log("Filtrando los primeros 5 elementos")
+let nuevoEstudiantes = estudiantes.filter((estudiante, index) => index<5);
+console.table(nuevoEstudiantes);
+console.table(filtraPrimeros5(estudiantes));
+//filtrar a los estudiantes que su nombre tenga más de 15 carácteres
+let nuevoEstudiantesNombre = estudiantes.filter((estudiante) => estudiante.length>15);
+console.table(nuevoEstudiantesNombre);
+//Intentamos modificar el arreglo inmutable
+/*estudiantes.pop()
+console.table(estudiantes)*/
+//Intentamos modificar el nuevo arreglo que no ha sido congelado
+nuevoEstudiantes.unshift("Diego Mota")
+console.table(nuevoEstudiantes);
+function filtraPrimeros5 (arregloEstudiantes){
+    let listaFiltrada=[]
+    for(let i=0; i<5; i++){
+        listaFiltrada.push(arregloEstudiantes[i]);
+ 
+    }
+    return listaFiltrada;
+    
+}
