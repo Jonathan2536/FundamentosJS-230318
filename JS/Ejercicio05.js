@@ -1,94 +1,93 @@
-const bg =
-  "linear-gradient(11deg, rgba(200,150,360,1) 0%, rgba(260,129,12,1) 33%, rgba(255,19,260,1) 86%)";
+//Estilización de los mensajes de salida
+const bg = "linear-gradient(11deg, rgba(10,35,105,1) 0%, rgba(60,105,180,1) 33%, rgba(90,155,225,1) 86%)";
 const style_console = `background: ${bg}; color: white; border-radius: 6px; padding: 4px; font-size: 1.0rem; font-weight: bold`;
-//Personalización de las salidas a consola
-console.warn("Práctica 07: Arreglos en Java Script");
-console.log("%c1.- Condicionales Si/Entoces ... (IF)", style_console);
-//Le indica al programa que hacer o que no en base a una prueba lógica de verdadero o falso
+
+
+
+// Personalización de las salidas a consola
+// Se muestra un aviso en la consola indicando el propósito de la práctica.
+console.warn("Práctica 07: Repaso de Ciclos y sentencias de control ");
+console.log("%c1.- Si/Entoces ... (IF)", style_console);
+// Se utiliza un estilo personalizado para imprimir el texto en la consola.
+// El comentario explica que el siguiente bloque de código se basa en una prueba lógica que evalúa verdadero o falso.
+
+// Obtiene la fecha y hora actual
 let fechaActual = new Date();
+// Imprime la fecha actual en formato de texto legible
 console.log(`Hola, la fecha de hoy es: ${fechaActual.toDateString()}`);
-//Y si la necesitamos en formato local(?)
-const fechaLocalMX = fechaActual.toLocaleString("es-MX", {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-  hour: "numeric",
-  minute: "numeric",
-  second: "numeric",
-  hour12: false,
+
+// Se necesita la fecha en formato local de México
+const fechaLocalMX = fechaActual.toLocaleString('es-MX', {
+    weekday: 'long', // Día de la semana
+    year: 'numeric', // Año en formato numérico
+    month: 'long',   // Nombre del mes completo
+    day: 'numeric',  // Día del mes
+    hour: 'numeric', // Hora en formato numérico
+    minute: 'numeric', // Minutos
+    second: 'numeric',  // Segundos
+    hour12: false      // Usar formato de 24 horas
 });
+
+// Imprime la fecha en formato local
 console.log(`en formato local (México): ${fechaLocalMX}`);
-//Si es antes de las doce saluda con buenos días
-if (fechaActual.getHours() < 12)
-  console.log(`Buenos días, hoy es ${fechaLocalMX}`);
-//Existe un extensor de la sentencia if(Sí) que es else (En Caso contrario)
+
+// Condición que verifica si la hora actual es antes de las 12
+if (fechaActual.getHours() < 12) 
+    console.log(`Buenos días, hoy es ${fechaLocalMX}`); // Saludo matutino
+
+// Condición que determina si estamos en la primera o segunda mitad del año
 if (fechaActual.getMonth() <= 6)
-  console.log(`Estas en la primera mitad del año`);
-else console.log(`Estas en la segunda mitad del año.`);
-//que pasa si la validación tiene varias operaciones
-const anio = fechaActual.getFullYear();
-let inicioPrimavera = new Date(anio, 2, 21);
-let inicioVerano = new Date(anio, 5, 21);
-let inicioOtonio = new Date(anio, 8, 23);
-let inicioInvierno = new Date(anio, 11, 21);
-let horarioVerano = false;
-if (fechaActual >= inicioPrimavera || fechaActual < inicioVerano) {
-  console.log("Estamos en PRIMAVERA...");
-  console.log("Inicia la floracion de muchas plantas...");
-  console.log("Los dias son mas largos y las noches mas cortas...");
-  console.log("Muchos animales despiertan de la hibernacion...");
-  estacion = "Primavera";
-  horarioVerano = true;
+    console.log(`Estas en la primera mitad del año`);
+else
+    console.log(`Estas en la segunda mitad del año.`);
+
+// Se establecen fechas de inicio de las estaciones del año
+const anio = fechaActual.getFullYear(); // Año actual
+let inicioPrimavera = new Date(anio, 2, 21); // 21 de marzo
+let inicioVerano = new Date(anio, 5, 21);    // 21 de junio
+let inicioOtonio = new Date(anio, 8, 23);    // 23 de septiembre
+let inicioInvierno = new Date(anio, 11, 21); // 21 de diciembre
+
+// Variable para almacenar la estación actual
+let estacion;
+let horarioVerano = false; // Inicializa la variable para el horario de verano
+
+// Condiciones para determinar en qué estación del año estamos
+if (fechaActual >= inicioPrimavera && fechaActual < inicioVerano) {
+    console.log(`Estamos en PRIMAVERA`);
+    console.log("Inicia la floración de muchas plantas.");
+    console.log("Los días son más largos y las noches más cortas.");
+    console.log("Muchos animales despiertan de la hibernación.");
+    estacion = "Primavera"; // Asigna la estación
+    horarioVerano = true; // Indica que estamos en horario de verano
+} else if (fechaActual >= inicioVerano && fechaActual < inicioOtonio) {
+    console.log("Estamos en VERANO");
+    console.log("En esta temporada abundan los días soleados y calurosos.");
+    console.log("En esta temporada el índice de turismo vacacional sube.");
+    console.log("Mucha gente busca realizar actividades al aire.");
+    estacion = "Verano"; // Asigna la estación
+    horarioVerano = true; // Indica que estamos en horario de verano
 } else if (fechaActual >= inicioOtonio && fechaActual < inicioInvierno) {
-  console.log("Estamos en OTOÑO...")
-  console.log("Los arboles suelen cambiar de follaje")
-  console.log("Se registran temperaturas mas templadas")
- console.log("Los animales comienzan con la recolecion de alimento y preparan sus espacios,incluso algunas emigran")
- estacion="Verano"
- horarioVerano=true;
+    console.log("Estamos en OTOÑO");
+    console.log("Los árboles suelen cambiar de follaje.");
+    console.log("Se registrarán temperaturas más templadas.");
+    console.log("Los animales comienzan con la recolección de alimento y preparan sus espacios para la hibernación, incluso algunas aves migran.");
+    estacion = "Otoño"; // Asigna la estación
+    horarioVerano = false; // Indica que no estamos en horario de verano
+} else {
+    console.log("Estamos en INVIERNO");
+    console.log("En esta temporada los días son más cortos y las noches más largas.");
+    console.log("En algunas regiones suele nevar.");
+    console.log("Dado las bajas temperaturas, se recomienda abrigarse.");
+    estacion = "Invierno"; // Asigna la estación
+    horarioVerano = false; // Indica que no estamos en horario de verano
 }
-else{
-    console.log("Estamos en INVIERNO")
-    console.log("En esta temporada los días son mas cortos y las noches mas largas...")
-    console.log("En algunas regiones suele nevar ...")
-    console.log("Dado las bajas temperaturas , se recomienda abrigarse")
-    estacion="Invierno"
-    horarioVerano=false;
-}
-console.log("%c2.- Operador Ternario (validacion? cumple: no_cumple)", style_console);
-// En Java Script existe una operacion simplifica que valida si una condicion se cumple o no y que hacer en cada caso
-const edadPersona = 19;
-const mayoriaEdadMX=18;
-const mayoriaEdadUS=21;
-let evaluarMayoriaEdad = (edad) =>
-    edad>=18? "Eres mayor de edad." : "No eres mayor de edad."
-console.log("Evaluado la mayoria de edad de una persona...")
-console.log(evaluarMayoriaEdad(edadPersona));
-//Sin embargo tenemos que considerar que la mayoria de edad varia en cada pais
-//por cuestiones legales , por lo que debemos considerar un segundo parametro en la evaluacion
-evaluarMayoriaEdad=(edad,pais)=>
-(edad>=18 && pais===" MX ")?`En ${ pais }eres mayor de edad`:`En${ pais }No eres mayor de edad`;
-console.log("Evaluando la mayoria de edad de una persona en Mexico")
-console.log(evaluarMayoriaEdad(edadPersona, " MX "));
-console.log("Evaluando la mayoria de edad de una persona en Estados Unidos")
-console.log(evaluarMayoriaEdad(edadPersona, " US "));
-console.log("%c3.- SWHITCH  - CASE (Eleccion por valor definido)", style_console);
-let asignaGeneracion = (anioNacimiento)=>{
-    switch(true)
-    {
-        case(anioNacimiento<1968): //Baby Boomers
-        return "Baby Boomers";
-        case(anioNacimiento>1968 && anioNacimiento<=1980):
-        return "Generacion X";
-        case(anioNacimiento>1980 && anioNacimiento<=1994):
-        return "Milenials";
-        case(anioNacimiento>1994 && anioNacimiento<=2010):
-        return "Centenials";
-        case(anioNacimiento>2010):
-        return "Krystal";
-    }
-}
+
+
+
+
+console.log("%c2.- Operador Ternario (validación?cumple:no_cumple)", style_console);
+//En JavaScript existe una operación simplificada que valida si una condición se cumple o no, y que hacer en cada caso.
 
 const edadPersona=18;
 const mayoriaEdadMX=18;
@@ -335,3 +334,42 @@ for(let i in seriesTrending){
   console.log(`---------------------`)
 }
 
+// Se muestra un mensaje en la consola indicando que se abordará el uso del ciclo forEach para recorrer un arreglo.
+console.log("%c11.-Ciclos interrumpidos para cada uno de los elementos del arreglo (FOR EACH)", style_console);
+
+// Se define un arreglo de objetos que contiene información sobre series de TV en tendencia, incluyendo el nombre, número de temporadas, total de espectadores y reproducciones.
+let seriesTrending2 = [
+  { nombre: "Rick y Morty", temporadas: 7, totalViewers: "800000", totalReprods: "12000" },
+  { nombre: "One Punch Man", temporadas: 3, totalViewers: "90000", totalReprods: "220000" },
+  { nombre: "La historia de Jeffry Dahmer", temporadas: 2, totalViewers: "150000", totalReprods: "252000" },
+  { nombre: "Estamos Muertos", temporadas: 3, totalViewers: "80000", totalReprods: "250000" },
+  { nombre: "Un Show Más", temporadas: 3, totalViewers: "7000", totalReprods: "50000" },
+];
+
+// Se utiliza el método forEach para recorrer cada serie en el arreglo y calcular su calificación.
+seriesTrending2.forEach((serie, index) => {
+  // Se calcula la calificación como el cociente entre total de reproducciones y total de espectadores.
+  let calificación = (serie.totalReprods / serie.totalViewers).toFixed(2); // Se redondea a 2 decimales.
+  
+
+  console.log(`Serie ${index + 1}:`); 
+  console.log(`Nombre ${serie.nombre}:`);
+  console.log(`Vistas ${serie.totalViewers}:`); 
+  console.log(`Reproducciones ${serie.totalReprods}:`);
+  console.log(`Calificación ${calificación}:`); 
+  console.log(`---------------------`); 
+});
+
+
+let seriesDeseadas = ["Rick y Morty","One Ponch Man","Un Show Mas"];
+
+let seriesConTresTemporadas = seriesTrending2
+    .filter(serie=> serie.temporadas <=3)//Filatramos las series que teienen 3 temporadas
+    .map(serie=> serie.nombre)//Obtenemos solo los nombres de esas series estan en la lista de series deseadas
+    .filter(nombre=> seriesDeseadas.includes(nombre));//Filtramos las que estan en la lista de series deseadas
+
+//Mostramos los resultados
+//console.log("Series con 3 temporadas que estan en la lista deseada: ")
+//console.log(seriesConTresTemporadas);
+console.warn("Series con 3 temporadas que estan en la lista deseada(TABLA): ")
+console.log(seriesConTresTemporadas)
