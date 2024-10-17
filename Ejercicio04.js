@@ -204,3 +204,4 @@ function filtraPrimeros5 (arregloEstudiantes){
     return listaFiltrada;
     
 }
+//Revision de la practica06 , todo correcto
