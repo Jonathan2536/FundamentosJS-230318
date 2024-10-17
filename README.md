@@ -8,6 +8,14 @@ Previo a iniciar el desarollo de software para web usando el freamwork de NodeJS
 un par de prácticas de repaso en JavaScript puro , con el objetivo de confirmar los conocimientos
 básicos de logica de programación.
 
+|No.|Descripción|Potenciadores|Estatus|
+|--|--|--|--|
+|1.|Metodologia de Evaluacion|1|⌛Finalizada|
+|2.|Inicialización del Proyecto de Fundamentos de JS|5|⌛Finalizada|
+|3.|Declaración de Variables(Undefined/Boolean/Number)|10|⌛Finalizada|
+|4.|Introduccion a Objetos(String/BigInt/Symbol/Null/Function)|6|⌛Finalizada|
+|5.|Introducción a Objetos|19|⌛Finalizada|
+
 ## Autor
 Jonathan Emanuel
 Unidad 1
