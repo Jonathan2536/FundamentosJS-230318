@@ -118,3 +118,4 @@ let Venta2 = {
     console.log("Fusionamps los 3 Objetos en uno nuevo sin perdida de informacion")
     console.log(Venta2)
     console.table(Venta2)
+    
